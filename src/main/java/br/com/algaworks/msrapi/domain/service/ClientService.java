@@ -18,11 +18,10 @@ public class ClientService {
 
     @Transactional
     public Client createClient(Client client){
-
         boolean emailPresent = clientRepository.findByEmail(client.getEmail())
                 .stream()
-                .anyMatch(clientExist -> clientExist.equals(client));
-
+                .anyMatch(clientExist -> !clientExist.equals(client));
+        System.out.println(emailPresent);
         if(emailPresent){
             throw new BusinessException("Já existe um cliente cadastrado com este e-mail");
         }
@@ -44,6 +43,8 @@ public class ClientService {
         return clientRepository.findById(clientId);
     }
 
-
-
+    public Client buscar(Client client){
+        return clientRepository.findById(client.getId())
+                .orElseThrow(() -> new BusinessException("Cliente não encontrado"));
+    }
 }

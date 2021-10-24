@@ -14,10 +14,8 @@ import java.util.*;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/client")
-public class ClienteController {
+public class ClientController {
 
-
-    private ClientRepository clientRepository;
     private ClientService clientService;
 
     @GetMapping

@@ -1,5 +1,6 @@
 package br.com.algaworks.msrapi.domain.model;
 
+import br.com.algaworks.msrapi.domain.ValidationGroups;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +14,7 @@ import javax.validation.constraints.*;
 @Entity
 public class Client {
 
+    @NotNull(groups = ValidationGroups.ClientId.class)
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,11 +35,5 @@ public class Client {
 
     public Client(){
 
-    }
-
-    public Client(String name, String email, String phone) {
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
     }
 }

@@ -1,0 +1,1 @@
+alter table delivery add column tax decimal(10,2);
