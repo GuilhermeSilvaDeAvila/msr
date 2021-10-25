@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,7 +28,7 @@ public class DeliveryService {
 
         delivery.setClient(client);
         delivery.setStatus(StatusDelivery.PENDING);
-        delivery.setDateOrder(LocalDateTime.now());
+        delivery.setDateOrder(OffsetDateTime.now());
 
         return deliveryRepository.save(delivery);
     }

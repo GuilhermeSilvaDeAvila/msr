@@ -13,6 +13,7 @@ import javax.validation.groups.ConvertGroup;
 import javax.validation.groups.Default;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @Getter
 @Setter
@@ -42,9 +43,9 @@ public class Delivery {
 
     @Column(name = "date_order")
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private LocalDateTime dateOrder;
+    private OffsetDateTime dateOrder;
 
     @Column(name = "date_finished")
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private LocalDateTime dateFinsihed;
+    private OffsetDateTime dateFinsihed;
 }

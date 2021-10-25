@@ -1,11 +1,10 @@
-package br.com.algaworks.msrapi.controller;
+package br.com.algaworks.msrapi.api.controller;
 
 import br.com.algaworks.msrapi.domain.model.Delivery;
 import br.com.algaworks.msrapi.domain.service.DeliveryService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

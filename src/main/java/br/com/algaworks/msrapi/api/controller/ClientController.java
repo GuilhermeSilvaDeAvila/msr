@@ -1,6 +1,5 @@
-package br.com.algaworks.msrapi.controller;
+package br.com.algaworks.msrapi.api.controller;
 
-import br.com.algaworks.msrapi.domain.repository.ClientRepository;
 import br.com.algaworks.msrapi.domain.service.ClientService;
 import br.com.algaworks.msrapi.domain.model.*;
 import lombok.AllArgsConstructor;

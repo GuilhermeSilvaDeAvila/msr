@@ -1,4 +1,4 @@
-package br.com.algaworks.msrapi.exceptionhandler;
+package br.com.algaworks.msrapi.api.exceptionhandler;
 
 import br.com.algaworks.msrapi.domain.exception.BusinessException;
 import lombok.AllArgsConstructor;

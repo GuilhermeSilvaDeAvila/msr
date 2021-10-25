@@ -1,4 +1,4 @@
-package br.com.algaworks.msrapi.exceptionhandler;
+package br.com.algaworks.msrapi.api.exceptionhandler;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
