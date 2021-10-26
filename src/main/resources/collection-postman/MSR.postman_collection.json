@@ -1,0 +1,466 @@
+{
+	"info": {
+		"_postman_id": "b71d0dc3-9f59-4647-aeb6-83f17e4c7fab",
+		"name": "MSR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Laura\",\r\n    \"email\": \"lucas@gmail.com\",\r\n    \"phone\": \"55 99999-1111\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/client",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/client",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/client/:clientId",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client",
+								":clientId"
+							],
+							"variable": [
+								{
+									"key": "clientId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Laura\",\r\n    \"email\": \"laura@gmail.com\",\r\n    \"phone\": \"55 99999-1111\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/client/:clientId",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client",
+								":clientId"
+							],
+							"variable": [
+								{
+									"key": "clientId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/client/:clientId",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client",
+								":clientId"
+							],
+							"variable": [
+								{
+									"key": "clientId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create with values invalid",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": null,\r\n    \"email\": \"testegmail.com\",\r\n    \"phone\": \"55 99999-11111111111111111\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/client",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create with email register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Guilherme\",\r\n    \"email\": \"guilherme@gmail.com\",\r\n    \"phone\": \"55 99999-1111\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/client",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delivery",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"client\": {\r\n        \"id\": 3\r\n    },\r\n    \"addressee\": {\r\n        \"name\": \"Laura Cadaval\",\r\n        \"street\": \"Barão do ladário\",\r\n        \"number\": \"1528\",\r\n        \"complement\": \"apto 201\",\r\n        \"neighboord\": \"Centro\"\r\n    },\r\n    \"status\": \"PENDING\",\r\n    \"tax\": 100.50\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/delivery",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"delivery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/delivery",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"delivery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/delivery/:deliveryId",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"delivery",
+								":deliveryId"
+							],
+							"variable": [
+								{
+									"key": "deliveryId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create delivery event",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Tentativa sem sucesso (não estava em casa)\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/delivery/:deliveryId/events",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"delivery",
+								":deliveryId",
+								"events"
+							],
+							"variable": [
+								{
+									"key": "deliveryId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get events",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Tentativa sem sucesso (não estava em casa)\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/delivery/:deliveryId/events",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"delivery",
+								":deliveryId",
+								"events"
+							],
+							"variable": [
+								{
+									"key": "deliveryId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Finished delivery",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Tentativa sem sucesso (não estava em casa)\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/delivery/:deliveryId/finished",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"delivery",
+								":deliveryId",
+								"finished"
+							],
+							"variable": [
+								{
+									"key": "deliveryId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
