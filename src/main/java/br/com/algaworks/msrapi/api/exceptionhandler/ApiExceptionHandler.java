@@ -1,6 +1,7 @@
 package br.com.algaworks.msrapi.api.exceptionhandler;
 
 import br.com.algaworks.msrapi.domain.exception.BusinessException;
+import br.com.algaworks.msrapi.domain.exception.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -46,6 +47,17 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(BusinessException.class)
     public ResponseEntity<Object> handleBusiness(BusinessException ex, WebRequest request){
         HttpStatus status = HttpStatus.BAD_REQUEST;
+        Problem messageError = new Problem();
+
+        messageError.setStatus(status.value());
+        messageError.setMessage(ex.getMessage());
+
+        return handleExceptionInternal(ex, messageError, new HttpHeaders(), status, request);
+    }
+
+    @ExceptionHandler(EntityNotFoundException.class)
+    public ResponseEntity<Object> entityNotFound(BusinessException ex, WebRequest request){
+        HttpStatus status = HttpStatus.NOT_FOUND;
         Problem messageError = new Problem();
 
         messageError.setStatus(status.value());

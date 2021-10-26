@@ -30,6 +30,8 @@ public class DeliveryService {
         delivery.setStatus(StatusDelivery.PENDING);
         delivery.setDateOrder(OffsetDateTime.now());
 
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>> "+delivery.getDateOrder());
+
         return deliveryRepository.save(delivery);
     }
 

@@ -1,27 +1,28 @@
 package br.com.algaworks.msrapi.domain.model;
 
-import br.com.algaworks.msrapi.domain.ValidationGroups;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import java.time.OffsetDateTime;
 
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Getter
 @Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Client {
+@Table(name = "event")
+public class EventDelivery {
 
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @ManyToOne
+    private Delivery delivery;
 
-    private String email;
+    private String description;
 
-    private String phone;
+    private OffsetDateTime dateRegister;
 }

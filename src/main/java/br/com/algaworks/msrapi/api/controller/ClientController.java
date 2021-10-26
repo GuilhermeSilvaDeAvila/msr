@@ -1,5 +1,8 @@
 package br.com.algaworks.msrapi.api.controller;
 
+import br.com.algaworks.msrapi.api.mapper.ClientMapper;
+import br.com.algaworks.msrapi.api.model.client.ClientDTO;
+import br.com.algaworks.msrapi.api.model.client.ClientRequestDTO;
 import br.com.algaworks.msrapi.domain.service.ClientService;
 import br.com.algaworks.msrapi.domain.model.*;
 import lombok.AllArgsConstructor;
@@ -16,27 +19,33 @@ import java.util.*;
 public class ClientController {
 
     private ClientService clientService;
+    private ClientMapper clientMapper;
 
     @GetMapping
-    public List<Client> getAllClient(){
-        return clientService.getAllClient();
+    public List<ClientDTO> getAllClient(){
+        return clientMapper.toCollectionModel(clientService.getAllClient());
     }
 
+
     @GetMapping("/{clientId}")
-    public ResponseEntity<Client> getByIdClient(@PathVariable Long clientId){
+    public ResponseEntity<ClientDTO> getByIdClient(@PathVariable Long clientId){
         return clientService.getByIdClient(clientId)
-                .map(ResponseEntity::ok)
+                .map(client -> ResponseEntity.ok(clientMapper.toModel(client)))
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity<Client> createClient(@Valid @RequestBody Client client){
+    public ResponseEntity<ClientDTO> createClient(@Valid @RequestBody ClientRequestDTO clientRequestDTO){
+        Client client = clientMapper.toEntity(clientRequestDTO);
         clientService.createClient(client);
-        return ResponseEntity.status(HttpStatus.CREATED).body(client);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(clientMapper.toModel(client));
     }
 
     @PutMapping("/{clientId}")
-    public ResponseEntity<Client> updateClientById(@Valid @PathVariable Long clientId, @RequestBody Client client){
+    public ResponseEntity<ClientDTO> updateClientById(@Valid @PathVariable Long clientId, @RequestBody ClientRequestDTO clientRequestDTO){
+        Client client = clientMapper.toEntity(clientRequestDTO);
+
         if(clientService.getByIdClient(clientId).isEmpty()){
             return ResponseEntity.notFound().build();
         }
@@ -44,7 +53,7 @@ public class ClientController {
         client.setId(clientId);
         clientService.createClient(client);
 
-        return ResponseEntity.status(HttpStatus.OK).body(client);
+        return ResponseEntity.status(HttpStatus.OK).body(clientMapper.toModel(client));
     }
 
     @DeleteMapping("/{clientId}")
